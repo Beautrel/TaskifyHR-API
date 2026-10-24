@@ -1,0 +1,17 @@
+# Base PostgreSQL pour le développement :  docker compose up -d
+# Puis, dans le terminal de l'API :
+#   export POSTGRES_DB=taskify POSTGRES_USER=taskify POSTGRES_PASSWORD=taskify POSTGRES_HOST=localhost
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: taskify
+      POSTGRES_USER: taskify
+      POSTGRES_PASSWORD: taskify
+    ports:
+      - "5432:5432"
+    volumes:
+      - taskify_pgdata:/var/lib/postgresql/data
+
+volumes:
+  taskify_pgdata:
